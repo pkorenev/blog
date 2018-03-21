@@ -1,0 +1,7 @@
+.comment
+  .author
+    |author:
+    span
+      = comment.user.try(:email) || 'anonymous'
+  .comment-text
+    = comment.comment_text

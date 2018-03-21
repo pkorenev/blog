@@ -1,0 +1,17 @@
+h1
+  = @article.name
+
+.article-content
+  = raw @article.content
+
+.article-comments.comments
+  - @article_comments.each do |comment|
+    = render "comment", comment: comment
+
+.new-comment-form-container
+  form#new-comment-form action=create_article_comment_path(id: @article.id) method="post"
+    label for="new_comment__comment_text"
+      |Comment text
+    textarea#new_comment__comment_text name="comment[comment_text]"
+    button type="submit"
+      |Submit
